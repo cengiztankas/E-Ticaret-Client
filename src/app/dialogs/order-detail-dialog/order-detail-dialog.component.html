@@ -1,0 +1,63 @@
+<h2 mat-dialog-title>Şipariş Detayı</h2>
+<mat-dialog-content class="mat-typography">
+  
+
+  <p>
+    <mat-toolbar>
+      <span class="">Şipariş No: </span> <span class="siparisNo">{{singleOrder.orderCode}}</span>
+    </mat-toolbar>
+  </p>
+  
+  <table class="table table-striped table-hover">
+    <thead>
+      <tr>
+        <th scope="col" class="TId">#</th>
+        <th scope="col">Ürün</th>
+        <th scope="col" >Fiyat</th>
+        <th scope="col" >Adet</th>
+        <th scope="col" class="TFiyat">Fiyat Toplam</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="basketItem_{{i}}" *ngFor="let item of basketItems;let i=index">
+        <th scope="row">{{i+1}}</th>
+        <td>{{item.name}}</td>
+        <td class="TFiyat"> {{item.price.toFixed(2)}}₺</td>
+        <td class="TAdet"> {{item.quantity}}</td>
+        <td class="TTFiyat">{{(item.price*item.quantity).toFixed(2)}}₺</td>
+      </tr>
+     
+    </tbody>
+    <tfoot class="tFoot">
+      <tr>
+        <td colspan="2"></td>
+        <td colspan="3"></td>
+      </tr>
+      <tr>
+        <td colspan="2" class="title">Fatura Toplam:</td>
+        <td colspan="3" class="siparisNo">{{toataPrice.toFixed(2)}}₺</td>
+      </tr>
+      <tr>
+        <td colspan="2" class="title">Adres:</td>
+        <td colspan="3" class="subTitle">{{singleOrder.address}}</td>
+      </tr>
+      <tr>
+        <td colspan="2" class="title">Tarih:</td>
+        <td colspan="3" class="subTitle">{{singleOrder.createdDate}}</td>
+      </tr>
+      <tr>
+        <td colspan="2" class="title">Açıklama:</td>
+        <td colspan="3" class="subTitle">{{singleOrder.description}}</td>
+      </tr>
+     
+    </tfoot>
+  </table>
+
+
+
+
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-raised-button mat-dialog-close color="warn">Kapat</button>
+  <button mat-button mat-raised-button color="primary" *ngIf="!singleOrder.isCompleted"  [mat-dialog-close]="data" (click)="CompletedOrder(data)" cdkFocusInitial>Şiparişi Tamamla</button>
+</mat-dialog-actions>

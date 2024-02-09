@@ -1,0 +1,7 @@
+<form class="RoleCreate-form" >
+    <mat-form-field class="ProductCreate-full-width">
+      <mat-label>Role Adı:</mat-label>
+      <input #txtrolename matInput placeholder="Ör. admin" value="">
+    </mat-form-field>
+      <button mat-raised-button color="primary" class="w-75" (click)="create(txtrolename.value)">Kaydet</button>
+</form>

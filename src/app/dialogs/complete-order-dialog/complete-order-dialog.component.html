@@ -1,0 +1,12 @@
+<div class="completeOrder" >
+    <h1 mat-dialog-title>Uyarı</h1>
+    <div mat-dialog-content>
+        <h3>Siparişi Tamamlamak İstediğinizden Emin misiniz?</h3>
+    </div>
+    <div mat-dialog-actions class="">
+     <button mat-button mat-raised-button mat-dialog-close color="warn">Kapat</button>
+    <button mat-button mat-raised-button color="primary"  [mat-dialog-close]="data" (click)="complete()" cdkFocusInitial>Evet</button>
+    </div>
+
+</div>
+

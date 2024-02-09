@@ -1,0 +1,16 @@
+<form class="ProductCreate-form" >
+    <mat-form-field class="ProductCreate-full-width">
+      <mat-label>Ürün Adı:</mat-label>
+      <input #txtname matInput placeholder="Ör. Kalem" value="">
+    </mat-form-field>
+    <mat-form-field class="ProductCreate-full-width">
+        <mat-label>Stok:</mat-label>
+        <input #txtstock matInput placeholder="Ör. 10"  min="0" type="number" value="0">
+      </mat-form-field>
+      <mat-form-field class="ProductCreate-full-width">
+        <mat-label>Fiyat:</mat-label>
+        <input #txtprice matInput placeholder="Ör. 5" min="0" type="number" value="0">
+      </mat-form-field>
+      
+      <button mat-raised-button color="primary" class="w-100" (click)="create(txtname,txtstock,txtprice)">Kaydet</button>
+</form>

@@ -1,0 +1,12 @@
+<div class="shoppingComplete" >
+    <h1 mat-dialog-title>Uyarı</h1>
+    <div mat-dialog-content>
+        <h3>Alışverişi Tamamlamak İstediğinizden Emin misiniz?</h3>
+    </div>
+    <div mat-dialog-actions class="">
+    <button mat-button mat-raised-button color="warn" mat-dialog-close (click)="Close()">Hayır</button>
+    <button mat-button mat-raised-button color="primary"  [mat-dialog-close]="data" (click)="complete()" cdkFocusInitial>Evet</button>
+    </div>
+
+</div>
+

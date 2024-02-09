@@ -1,0 +1,30 @@
+<h2 mat-dialog-title>Install Angular</h2>
+<mat-dialog-content class="mat-typography">
+  <app-file-upload [fileUploadOption]="_fileUploadOption"></app-file-upload>
+
+
+  <mat-card class="productImage-card" *ngFor="let item of images">
+    <mat-card-header>
+      <input type="radio" name="img" (click)="showCase(item.id)" checked *ngIf="item.showcase"/>
+      <input type="radio" name="img" (click)="showCase(item.id)" *ngIf="!item.showcase"/>
+    </mat-card-header>
+    <img mat-card-image [src]="item.path" alt="{{item.path}}">
+    <mat-card-content>
+      
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="warn" class="btnDelete" (click)="deleteImage(item.id)">Delete</button>
+    </mat-card-actions>
+  </mat-card>
+  
+
+
+
+
+
+
+
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cancel</button>
+</mat-dialog-actions>

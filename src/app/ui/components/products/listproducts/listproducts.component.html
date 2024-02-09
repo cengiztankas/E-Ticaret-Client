@@ -1,0 +1,43 @@
+<div class="row" *ngIf="products">
+    <div class="col-3 my-3" *ngFor="let product of products">
+        
+        <div class="card mb-2 PCard"  >
+            <div class="cardImgDiv">
+                <img class="card-Product" *ngIf='product.isShowcase'  src="{{baseStorageUrl}}/{{product.imagePath}}">
+                <img class="card-noProduct" *ngIf='!product.isShowcase' src="../../../assets/img/noProduct.png">
+            </div>
+            <div class="btnTag">
+                <div class=" KargoBedava" ><i class="fa-solid fa-truck me-1"></i>Kargo Bedava</div>
+                <div class=" Indirim"><i class="fa-solid fa-tags me-1"></i>İndirimde </div>
+            </div>
+            <div class="DiscountPersent">
+                <div class=" Indirim" ><i class="fa-solid fa-percent me-1"></i>20 <img class="downGif" src="../../../assets/img/down.gif" /></div>
+            </div> 
+            <div class="card-body">
+                <h1 class="card-title PMarkaTitle" >{{product.name}} </h1>
+                <span class="oldPrice me-3"><i class="fa-solid fa-tags priceTag"></i>Fiyat: {{product.price}}<i class="fa-solid fa-turkish-lira-sign ms-1"></i></span>
+                <div class="priceDiv">
+                    <i class="fa-solid fa-tags priceTag"></i><small class="priceTitle">İndirimli Fiyat: </small> {{product.price}}<i class="fa-solid fa-turkish-lira-sign ms-1"></i>
+                </div>
+                <div class="priceDiv">
+                    <i class="fa-solid fa-cubes StokTag"></i><small class="priceTitle">Stok: </small> {{product.stok}} adet
+                </div>
+            </div>
+            <div class="card-footer text-center">
+                <a routerLink="" class="btn btn-warning btnCartDetay w-100">Ürün Detay</a>
+                <button (click)="AddToCard(product.id)" class="btn-cartEkle "> <i class="fa-solid fa-cart-plus"></i></button>
+            </div>
+        </div>
+    </div>
+  
+</div>
+<div class="row"  *ngIf="products">
+    <nav class="d-flex justify-content-center">
+        <ul class="pagination">
+          <li class="page-item"><a class="page-link"> {{currentPageNo}}/{{totalPageCount}} </a></li>
+          <li class="page-item"><a class="page-link" routerLink="/products/{{currentPageNo-1<=0?1:currentPageNo-1}}">Sonraki</a></li>
+          <li class="page-item" *ngFor="let pageNo of pageList"><a class="page-link" routerLinkActive="paginationActive" [routerLink]="['/products',pageNo]">{{pageNo}}</a></li>
+          <li class="page-item"><a class="page-link" routerLink="/products/{{currentPageNo+1>=totalPageCount?totalPageCount:currentPageNo+1}}">Önceki</a></li>
+        </ul>
+      </nav>
+</div>

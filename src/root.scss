@@ -1,0 +1,64 @@
+// fontAwesome
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"); 
+:root {
+    --fiColor: #143e0d;
+    --seColor: #F2BE22;
+    --thColor: #F29727;
+    --foColor: #EEEEEE;
+    --whColor: #fff;
+    --blColor: #000;
+    --TopTitleColor: #3248aa;
+    --brColor: #F9B233;
+    /* ===== Colors ===== */
+    --primary-color: #0E4BF1;
+    --panel-color: #FFF;
+    --text-color: #000;
+    --black-light-color: #707070;
+    --border-color: #e6e5e5;
+    --toggle-color: #DDD;
+    --box1-color: #4DA3FF;
+    --box2-color: #FFE6AC;
+    --box3-color: #E7D1FC;
+    --title-icon-color: #fff;
+    --hover-color: #404040;
+}
+td.alert-danger {
+    background-color: #f8d7da !important; 
+}
+td.alert-warning {
+    background-color:  #fff3cd;
+}
+td.alert-primary {
+    background-color: #f8d7da !important;
+}
+td.alert-success {
+    background-color: #d1e7dd !important;
+}
+td.alert-info {
+     background-color: #cff4fc !important;
+}
+td.alert-secondary {
+    background-color: #e2e3e5 !important;
+}
+    a {
+        text-decoration: none !important;
+        color:var(--blColor) !important;
+    }
+.text-right {
+    text-align: right;
+}
+.active {
+    background: var(--fiColor);
+    color: var(--whColor) ;
+}
+.paginationActive{
+    background: var(--fiColor) !important;
+    color: var(--whColor) !important;
+
+}
+.Notfound img {
+    width: 30rem;
+}
+.Notfound {
+    text-align:center; 
+}

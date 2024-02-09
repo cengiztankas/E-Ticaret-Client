@@ -1,0 +1,63 @@
+<div class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource">
+  
+      <!-- Position Column -->
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef> Name </th>
+        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+      </ng-container>
+  
+      <!-- Name Column -->
+      <ng-container matColumnDef="stok">
+        <th mat-header-cell *matHeaderCellDef> Stock </th>
+        <td mat-cell *matCellDef="let element"> {{element.stok}} </td>
+      </ng-container>
+  
+      <!-- Weight Column -->
+      <ng-container matColumnDef="price">
+        <th mat-header-cell *matHeaderCellDef> Price </th>
+        <td mat-cell *matCellDef="let element"> {{element.price}} </td>
+      </ng-container>
+  
+      <!-- Symbol Column -->
+      <ng-container matColumnDef="createdDate">
+        <th mat-header-cell *matHeaderCellDef> createdDate </th>
+        <td mat-cell *matCellDef="let element"> {{element.createdDate}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="updatedDate">
+        <th mat-header-cell *matHeaderCellDef> updatedDate </th>
+        <td mat-cell *matCellDef="let element"> {{element.updatedDate}} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="foto" >
+        <th mat-header-cell *matHeaderCellDef width="20" >  </th>
+        <td mat-cell *matCellDef="let element" class="icon" (click)="AddProductImages(element.id)"> <img class="fotoIcon" src="../../../../../assets/img/foto.png" alt="">  </td>
+      </ng-container>
+
+      <ng-container matColumnDef="edit" >
+        <th mat-header-cell *matHeaderCellDef width="20">  </th>
+        <td mat-cell *matCellDef="let element" class="icon"> <img class="editIcon" src="../../../../../assets/img/editicon.png" alt="">  </td>
+      </ng-container>
+      <ng-container matColumnDef="qrCode" >
+        <th mat-header-cell *matHeaderCellDef width="20">  </th>
+        <td mat-cell *matCellDef="let element" class="icon" (click)="qrCode(element.id)"> <img class="editIcon" src="../../../../../assets/img/qrcode2.png" alt="">  </td>
+      </ng-container>
+
+
+      <ng-container matColumnDef="delete" >
+        <th mat-header-cell *matHeaderCellDef>  </th>
+              <td class="icon"  mat-cell *matCellDef="let element" [id]="element.id" controller="Products" appDelete  (callBack)="GetProduct()">  </td>
+        <!-- <td mat-cell *matCellDef="let element"> <img class="deleteIcon" src="../../../../../assets/img/delete.png" (click)="
+          delete(element.id,$event)"> </td> -->
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  
+    <mat-paginator (page)="pageChange()"
+                   [pageSizeOptions]="[5, 10, 20]"
+                   showFirstLastButtons
+                   aria-label="Select page of periodic elements">
+    </mat-paginator>
+  </div>

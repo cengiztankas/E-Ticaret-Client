@@ -1,0 +1,108 @@
+-----bootstrap--------
+1.npm i bootstrap
+2. "node_modules/bootstrap/dist/css/bootstrap.min.css"
+2. "node_modules/bootstrap/dist/js/bootstrap.min.js"
+------fontAwesome---------------
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"); 
+-----jquery--------
+1.npm i jquery
+2. "node_modules/jquery/dist/jquery.min.js"
+3.declare var $:any  
+$(document).ready(()=>{alert("merhaba")})
+
+-----material ui----------
+1.ng add @angular/material
+2.Importing the BrowserAnimationsModule into your application
+3.istediğin componentin css dosyasını angular.json a ekle -- "@angular/material/prebuilt-themes/pink-bluegrey.css",---
+4.kullanacağın component e API sini import et  --- import {MatSidenavModule} from '@angular/material/sidenav';----
+
+--------Alertfy cs----------------
+https://alertifyjs.com/
+1.npm install alertifyjs --save
+2."node_modules/alertifyjs/build/alertify.min.js"
+   "node_modules/alertifyjs/build/css/alertify.css",
+3."node_modules/alertifyjs/build/css/themes/semantic.css" //herhangi bir tema seçiliyor. Themes klasörü altında
+4.declare var alertify:any  
+5.alertify.alert('Ready!');
+// alertifyService.message("merhaba",alertifyMessageType.Error,alertifyPosition.BottomCenter,1)
+  // this.alertifyService.message({message:"message succes",messageType:alertifyMessageType.Success})
+----------toastr---------------------
+1.npm install ngx-toastr --save
+2. "node_modules/ngx-toastr/toastr-old.css"
+3. BrowserAnimationsModule, // required animations module
+    ToastrModule.forRoot(), // ToastrModule added
+    -------
+    constructor(private toastrService:CostumToastrService){
+  toastrService.Message({
+    message:"Toastr Message",
+    title:"title",
+    messageType:ToastrMessageType.success,
+    position:ToastrPosition.TopFullWidth
+  })
+  }
+
+-----------NgxSpinner-----------------
+1. npm install ngx-spinner --save
+2.     NgxSpinnerModule,
+3 ilgili spinner css import et ---"node_modules/ngx-spinner/animations/pacman.css"
+4.html=>https://napster2210.github.io/ngx-spinner/ -------<ngx-spinner bdColor = "rgba(0, 0, 0, 0.8)" size = "medium" color = "#c22525" type = "pacman" [fullScreen] = "true"><p style="color: white" > Loading... </p></ngx-spinner>
+5. constructor(private spinner:NgxSpinnerService){
+
+  
+  }
+  ngOnInit(): void {
+    this.spinner.show();
+    this.spinner.hide();
+  }
+ 
+
+----------- HttpClient------
+1.import HttpClientModule in appModule -----import { HttpClientModule } from '@angular/common/http';
+2.private httpClient:HttpClientService
+3.appmodule=>
+    providers: [{provide:"baseUrl",useValue:"https://localhost:7228/api",multi:true}],
+  httpservice=>
+    constructor(private httpClient:HttpClientService,@Inject("baseUrl")private baseUrl:string) { }
+
+  -------------ngnx fileDrop----------------
+  https://www.npmjs.com/package/ngx-file-drop
+  2.npm install ngx-file-drop --save
+  3.import in module ---  NgxFileDropModule
+----    "strict": false,----
+---tsconfig.json
+
+
+------------httpservice-----------------
+1.providers: [{provide:"baseUrl",useValue:"https://localhost:7127/api",multi:true}], => appmodule
+2. HttpClientModule =>appModule
+
+----------------SignalR----------------------
+ 1.https://learn.microsoft.com/en-us/aspnet/core/signalr/javascript-client?view=aspnetcore-8.0&tabs=visual-studio
+ 2.npm install @microsoft/signalr
+
+ -----------------DynamicLoadComponent-----------------------
+1.directive=>
+  DynamicLoadComponentDirective
+2.service=>
+  DynamicLoadComponentService
+3.app-Componnet=>  
+  -@ViewChild(DynamicLoadComponentDirective,{static:true})
+    dynamicLoadComponentDirective:DynamicLoadComponentDirective;
+  
+  -loadComponent(){
+      this.dynamicLoadComponentService.loadComponent(ComponentType.BasketsComponent,this.dynamicLoadComponentDirective.viewContainerRef)
+    }
+
+4.app-Componnet.htm=>
+  a -=> <div class="modal fade" id="BasketModal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-xl">
+        <ng-template appDynamicLoadComponent></ng-template> 
+        <!-- appDynamicLoadComponent=>directivin referansıdır. -->
+      </div>
+      </div>
+ b -=> <li class="nav-items">
+            <button data-bs-toggle="modal" data-bs-target="#BasketModal" 
+             class="btn btn-success" routerLinkActive="active" *ngIf="authService.isAuthenticated" (click)="loadComponent()" >
+              Sepet
+            </button>
+          </li>

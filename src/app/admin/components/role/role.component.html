@@ -1,0 +1,15 @@
+<div class="container">
+    <div class="row">
+        <div class="col-3 CreateRoleTab">
+            <div class="createRoleHeader">
+                 <h2 class="headerRole">Yeni Role Oluştur</h2>
+            </div>
+           
+          <app-create-role (_createRoleEmit)="CreateRoleEvent()"></app-create-role>
+        </div>
+        <div class="col-9 my-3">
+            
+          <app-role-list ></app-role-list>
+        </div>
+    </div>
+    </div>

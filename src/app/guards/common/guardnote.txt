@@ -1,0 +1,11 @@
+1.ng g g guards/common/auth
+2. Which type of guard would you like to create? CanActivate
+3.app-routing-moudule=>,canActivate:[authGuard] //router bir sayfaya gitmeden önce bu kardı çalıştırır.
+3.npm i @auth0/angular-jw => token'ları header a otomatik ekleyecektir.
+4.app.module=>  JwtModule.forRoot({
+            config:{
+                tokenGetter:()=>localStorage.getItem("accessToken"),
+                allowedDomains:["localhost:7228"] //token ı hangi api ye göndereeceğimizi belirtiyoruz.
+            }
+        })
+5.

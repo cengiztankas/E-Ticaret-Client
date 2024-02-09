@@ -1,0 +1,179 @@
+
+img.card-img-top {
+    height: 25rem;
+    object-fit: cover;
+    border: 2px solid var(--fiColor);
+    border-radius: 1rem 1rem 0 0;
+}
+
+.PCard {
+    background: var(--fiColor);
+    color: var(--whColor);
+    border-radius: 1rem;
+    height: 33rem;
+    position: relative;
+    padding-bottom: 1rem;
+    margin-bottom:2rem !important;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+}
+.btnTag {
+    position: absolute;
+ 
+    top: 1rem;
+    left: .5rem;
+}
+
+    .btnTag .Indirim {
+        /*        top: 4rem;
+        left: .5rem;*/
+        border: 1px solid var(--seColor);
+        background: #fff5d7;
+        color: var(--seColor);
+        padding: 0.5rem 1rem;
+        border-radius: 1rem;
+        font-weight: 400;
+        margin-bottom: .5rem;
+        width: 8.3rem;
+    }
+    .btnTag .KargoBedava {
+        border: 1px solid var(--fiColor);
+        background: #cceacc;
+        color: var(--fiColor);
+        padding: 0.5rem 1rem;
+        border-radius: 1rem;
+        font-weight: 300;
+        margin-bottom: .5rem;
+    }
+
+.PCard .text-muted {
+    color: var(--whColor) !important;
+    font-size: 1.2rem;
+    font-weight: 400;
+    opacity: 0.9;
+    position: absolute;
+    bottom: 5.5rem ;
+    left: 1rem;
+}
+.PCard .card-body {
+    padding: 0.1rem 1rem;
+}
+.PMarkaTitle {
+    font-size: 1.4rem;
+    margin: 0.5rem 0;
+}
+.PName {
+    font-size: 1rem;
+    opacity: .8;
+}
+.PCard .oldPrice {
+    font-size: .9rem;
+    text-decoration: line-through;
+}
+.DiscountPersent {
+    position: absolute;
+    top: 17.4rem;
+    right: 0.5rem;
+    color: red;
+    background: #fff;
+    padding: 0.6rem;
+    border-radius: 1rem;
+    font-weight: 700;
+    font-size: 1.2rem;
+    border: 3px solid red;
+}
+button.btn-cartEkle{
+    color: var(--fiColor);
+}
+img.downGif {
+    width: 1rem !important;
+}
+a {
+    color: #000;
+    text-decoration: none;
+}
+
+.NavCinsiyet a {
+    padding: 1rem 1rem 0 0;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+}
+
+    .NavCinsiyet a:hover {
+        color: green;
+    }
+
+.alert {
+    text-align: center;
+}
+
+button.btn-cartEkle {
+    padding: 0;
+    border: 0;
+    background: transparent;
+    font-size: 2rem;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    z-index: 10;
+}
+button.btn-cartDetay {
+    padding: 0;
+    border: 0;
+    background: transparent;
+    font-size: 2rem;
+    position: absolute;
+    top: 22rem;
+    left: .7rem;
+    color: var(--thColor);
+    z-index: 10;
+}
+
+    button.btn-cartEkle:hover {
+        color: #ffc107;
+    }
+
+.btnCartDetay {
+    position: absolute;
+    bottom: 1rem;
+    left: 0;
+    border-radius: 0;
+}
+img.downGif {
+    width: 1rem;
+}
+span.oldPrice {
+    text-decoration: line-through;
+}
+.card-noProduct{
+    width: 9rem;
+    height: 9rem;
+}
+.card-Product{
+    width: 100%;
+    height: 100%;
+}
+.cardImgDiv{
+    height: 21rem;
+    border-radius: 1rem 1rem 0 0;
+    background-color:rgb(248 249 250);
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.priceTitle{
+    font-size: 1rem !important;
+    font-weight: 400;
+}
+.priceDiv {
+    margin-top: 0.5rem;
+}
+.priceTag{
+    color: #ffeead;
+    margin-right:.2rem ;
+}
+.StokTag{
+    color: #ffc107;
+    margin-right:.2rem ;
+}

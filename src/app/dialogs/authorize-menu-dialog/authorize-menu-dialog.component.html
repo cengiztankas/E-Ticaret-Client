@@ -1,0 +1,22 @@
+<div class="authotication" >
+    <h1 mat-dialog-title>{{data.name}}</h1>
+    <div mat-dialog-content>
+        <mat-selection-list #RolesComponenet>
+            
+              <mat-list-option *ngFor="let role of listRole" selected={{role.selected}}>
+                {{role.name}}
+            </mat-list-option>
+            
+          </mat-selection-list> 
+          
+          <p>
+            Options selected: {{RolesComponenet.selectedOptions.selected.length}}
+          </p>
+                  
+    </div>
+    <div mat-dialog-actions class="btnDiv">
+      <button mat-button mat-raised-button color="warn" mat-dialog-close (click)="Close()">Hayır</button>
+      <button mat-button mat-raised-button color="primary"  [mat-dialog-close]="data" cdkFocusInitial (click)="assignRoles(RolesComponenet)" >Rolleri Ata</button>
+    </div>
+
+</div>

@@ -1,0 +1,26 @@
+table {
+    width: 100%;
+  }
+  .fotoIcon{
+    width: 25px;
+      }
+     
+      .icon{
+        padding: 1rem !important;
+        width: 20px !important;
+        cursor: pointer;
+    }
+
+    .success{
+      color: green;
+      font-size: 1.1rem;
+    }
+    .danger{
+      color:burlywood;
+      width: 20px;
+    height: 20px;
+    }
+    .isIcon{
+      text-align: right;
+      width: 1rem !important;
+    }

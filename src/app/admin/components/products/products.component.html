@@ -1,0 +1,16 @@
+
+<div class="container">
+<div class="row">
+    <div class="col-3">
+        <div class="createProductHeader">
+             <h2 class="headerProduct">Yeni Ürün Oluştur</h2>
+        </div>
+       
+        <app-create-product (createProductEvent)="createProductEvent($event)"></app-create-product>
+    </div>
+    <div class="col-9 my-3">
+        
+        <app-list-product></app-list-product>
+    </div>
+</div>
+</div>

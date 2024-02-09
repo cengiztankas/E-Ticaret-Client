@@ -1,0 +1,73 @@
+<div class="container">
+<div class="row py-3">
+   <div class="col-4"></div>
+    <div class="col-4 SignUp">
+            <h4 class="mb-2 title">Hesap Oluştur</h4>
+            <div class="alert alert-danger" *ngIf="error" >
+                <i class="fa-solid fa-circle-xmark"></i> {{error}}
+            </div>
+            <div class="alert alert-success" *ngIf="success" >
+                <i class="fa-regular fa-circle-check"></i> {{success}}
+            </div>  
+            <form  [formGroup]="frm" (ngSubmit)="onSubmit(frm.value)" >
+                <div class="mb-3">
+                    <label for="nameSurname" class="form-label">Ad Soyad</label>
+                    <input type="text"    id="nameSurname" formControlName="nameSurname"   class="form-control" >
+                    <small class="notValid"  *ngIf="!_nameSurname.valid&&(_nameSurname.dirty||_nameSurname.touched)">
+                        <small  *ngIf="_nameSurname.errors.required">Lütfen Ad Soyad alanını boş geçmeyin.</small> 
+                        <small   *ngIf="_nameSurname.errors.minlength||_nameSurname.errors.maxlength">Ad soyad 3 ile 60 Karakter olmalıdır.</small>     
+                      </small>
+                </div>
+                <div class="mb-3">
+                    <label for="userName" class="form-label">Kullanıcı Adı</label>
+                    <input type="text"   id="userName" formControlName="userName" class="form-control">
+                    <small class="notValid"  *ngIf="!_userName.valid&&(_userName.dirty||_userName.touched)">
+                        <small  *ngIf="_userName.errors.required">Lütfen Kullanıcı Adı alanını boş geçmeyin.</small>     
+                        <small   *ngIf="_userName.errors.minlength||_userName.errors.maxlength">Kullanıcı Adı 3 ile 60 Karakter olmalıdır.</small>     
+                    </small>
+                </div>
+                <div class="mb-3">
+                    <label for="email"  class="form-label">Email</label>
+                    <input type="email"  email  id="email" formControlName="email"  class="form-control">
+                    <small class="notValid"  *ngIf="!_email.valid&&(_email.dirty||_email.touched)">
+                        <small  *ngIf="_email.errors.required">Lütfen email alanını boş geçmeyin.</small> 
+                        <small  *ngIf="_email.errors.email">Lütfen doğru formart giriniz. ex:info&#64;example.com</small> 
+                        <small   *ngIf="_email.errors.maxlength">E-mail 5 ile 250 Karakter olmalıdır.</small>         
+                      </small>
+                </div>
+                <div formGroupName="PasswordGroup">
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Parola</label>
+                        <input type="password" required   id="password"  formControlName="password" class="form-control">
+                        <small class="notValid"  *ngIf="!_Password.valid&&(_Password.dirty||_Password.touched)">
+                            <small  *ngIf="_Password.errors.required">Lütfen Parola  alanını boş geçmeyin.</small>   
+                            <small   *ngIf="_Password.errors.minlength">Parola 8 ile 60 Karakter olmalıdır.</small>      
+                        </small>
+                    </div>
+                    <div class="mb-3">
+                        <label for="passwordConfirm" class="form-label">Parola Tekrar</label>
+                        <input type="password" required   id="passwordConfirm" formControlName="passwordConfirm"  class="form-control">
+                        <small class="notValid"  *ngIf="!_passwordConfirm.valid&&(_passwordConfirm.dirty||_passwordConfirm.touched)">
+                            <small  *ngIf="_passwordConfirm.errors.required">Lütfen Parola Tekrar alanını boş geçmeyin.</small>     
+                            <br>
+                        </small>
+                           
+                        <small class="notValid" *ngIf="!_PasswordGroup.valid&&(_passwordConfirm.dirty)">Parola Tekrar Eşleşmiyor</small>
+                    </div>
+                </div>  
+                <div class="d-grid gab-2">
+                    <button class="btn btn-primary mb-2" type="submit" [disabled]="frm.invalid">Hesap Oluştur</button>
+                    <a class="btn btn-outline-primary"  routerLink="/auth/login">
+                        Zaten Hesabım Var
+                    </a>
+                  
+                </div>
+            </form>
+
+           
+    </div>
+    <div class="col-4"></div>
+
+</div>
+
+</div>

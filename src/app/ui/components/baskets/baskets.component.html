@@ -1,0 +1,41 @@
+
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Alışveriş Sepetim</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Kapat"></button>
+        </div>
+        <div class="modal-body">
+          
+            
+            <table class="table table-striped table-hover">
+                <thead>
+                  <tr>
+                    <th scope="col" class="TId">#</th>
+                    <th scope="col">Ürün</th>
+                    <th scope="col" class="TFiyat">Fiyat</th>
+                    <th scope="col" class="TAdet">Adet</th>
+                    <th scope="col" class="TSil"></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="basketItem_{{i}}" *ngFor="let item of basketItems;let i=index">
+                    <th scope="row">{{i+1}}</th>
+                    <td>{{item.name}}</td>
+                    <td> {{item.price}} $</td>
+                    <td>
+                        <input type="number" class="TAdet" [value]="item.quantity" data-id="{{item.basketItemId}}" (change)="changeQuaintity($event)">
+                    </td>
+                    <td class="TSil"><button class="btn btn-danger btn-sm" (click)="RemoveBasketItem(item.basketItemId,i)">x</button></td>
+                  </tr>
+                 
+                </tbody>
+              </table>
+
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Kapat</button>
+          <button type="button" class="btn btn-success" (click)="ShoppingComplete()">Şiparişi Tamamla</button>
+        </div>
+      </div>
+  

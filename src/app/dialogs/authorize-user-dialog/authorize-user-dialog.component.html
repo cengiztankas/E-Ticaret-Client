@@ -1,0 +1,17 @@
+<div mat-dialog-content>
+  <p>İlgili sayfaya aşağıdan rolleri atayabilirsiniz.</p>
+</div>
+
+<div mat-dialog-content>
+<mat-selection-list #rolesComponent>
+  <mat-list-option *ngFor="let role of listRoles" selected="{{role.selected}}">
+    {{role.name}}
+  </mat-list-option>
+</mat-selection-list>
+
+</div>
+
+<div mat-dialog-actions>
+  <button mat-button (click)="Close()">İptal</button>
+  <button mat-button [mat-dialog-close]="data" cdkFocusInitial (click)="assignRoles(rolesComponent)">Rolleri Ata</button>
+</div>
